@@ -12,6 +12,28 @@
 	padding-bottom: 3%;
 }
 
+#home-post-title {
+	margin-top: 50%;
+}
+
+#home-post-column-title {
+	background-color: var(--gray);
+}
+
+#home-post-title .title {
+	color: white;
+}
+
+#home-post-col:hover {
+	opacity: 0.5;
+}
+
+#carousel-katalog a,
+#katalog-page a
+{
+	color: var(--gray-dark);
+}
+
 #carousel-katalog .card-footer,
 #carousel-katalog .card
  {
