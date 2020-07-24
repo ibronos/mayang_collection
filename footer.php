@@ -15,7 +15,7 @@ $soc_med = get_field("social_media", $frontpage_id);
 
 ?>
 
-        <footer class="">
+        <footer>
         	<div class="bg-light py-5">
 	            <div class="container">
 					<div class="row">
@@ -111,9 +111,22 @@ $soc_med = get_field("social_media", $frontpage_id);
 	            </div>
         	</div>
 
-        	    <div class="container">
-	            	<div class="small text-center text-muted">Copyright © 2020 - Start Bootstrap</div>
-	            </div>
+    	    <div class="container mt-3 pb-3">
+				<div class="row pb-1">
+					<div class="col-2"><h6 class="text-muted">Metode Pembayaran</h6></div>
+					<div class="col-1"> <img class="img-fluid w-100" src="<?php echo get_template_directory_uri(); ?>/assets/img/bca.png"> </div>
+					<div class="col-1"> <img class="img-fluid w-100" src="<?php echo get_template_directory_uri(); ?>/assets/img/mandiri.png"> </div>
+					<div class="col-1"> <img class="img-fluid w-100" src="<?php echo get_template_directory_uri(); ?>/assets/img/mastercard.png"> </div>
+					<div class="col-1"> <img class="img-fluid w-100" src="<?php echo get_template_directory_uri(); ?>/assets/img/visa.gif"> </div>
+				</div>
+				<div class="row">
+					<div class="col-2"><h6 class="text-muted">Kurir</h6></div>
+					<div class="col-1"> <img class="img-fluid w-100" src="<?php echo get_template_directory_uri(); ?>/assets/img/rcl.png"> </div>
+					<div class="col-1"> <img class="img-fluid w-100" src="<?php echo get_template_directory_uri(); ?>/assets/img/jne.jpg"> </div>
+					<div class="col-1"> <img class="img-fluid w-100" src="<?php echo get_template_directory_uri(); ?>/assets/img/sicepat.png"> </div>
+				</div>
+            </div>
+
         </footer>
 </div><!-- #page -->
 

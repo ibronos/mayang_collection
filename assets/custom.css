@@ -32,6 +32,19 @@
 #katalog-page a
 {
 	color: var(--gray-dark);
+	text-decoration: none;
+}
+
+#home-post a
+{ 
+	text-decoration: none;
+}
+
+#carousel-katalog a:hover,
+#katalog-page a:hover,
+#home-post a:hover
+{
+	color: var(--primary);
 }
 
 #carousel-katalog .card-footer,

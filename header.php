@@ -111,12 +111,20 @@
     	    	    	?>
     	    	    			<li class="nav-item <?= $li_class; ?>">
     	    	    				<a class="nav-link <?= $a_class; ?>" href="<?= $a_href; ?>" id="<?= $a_id; ?>" <?= $a_attr; ?> >
-    	    	    					<?= $value['title']; ?>    	    	    						
+    	    	    				<?php if ( $value['title'] == 'Shop' ) { ?>	
+	    	    	    			<i class="fa fa-shopping-bag" id="shop-nav" aria-hidden="true"></i>
+	    	    	    			<?php } else { 
+	    	    	    				echo $value['title']; 
+    	    	    				 } 
+    	    	    				 ?>   	    						
     	    	    				</a>
+    	    	    				
     	    	    				<?php if ( !empty($value['menu_child']) ) { ?>
 	    	    	    				<div class="dropdown-menu" aria-labelledby="<?= $a_id; ?>">
-	    	    	    					<?php foreach ($value['menu_child'] as $k_child => $v_child) { ?>
-	    	    	    							 <a class="dropdown-item" href="<?= $v_child['url']; ?>"><?= $v_child['title']; ?></a>
+	    	    	    					<?php 
+	    	    	    					foreach ($value['menu_child'] as $k_child => $v_child) { 
+	    	    	    					?>
+	    	    	    							<a class="dropdown-item" href="<?= $v_child['url']; ?>"><?= $v_child['title']; ?></a>
 	    	    	    					<?php } ?>
 	    	    	    				</div>
     	    	    				<?php } ?>
@@ -136,10 +144,60 @@
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+    	    	    	<?php 
+    	    	    		foreach ($menu as $key => $value) {
+    	    	    			$a_class = "";
+    	    	    			$a_href = "";
+    	    	    			$a_id = "";
+    	    	    			$a_attr = "";
+    	    	    			$li_class = "";
+    	    	    			if ( empty($value['menu_child']) ) {
+    	    	    				$a_class = "js-scroll-trigger";
+    	    	    				$a_href = $value['url'];
+    	    	    			}
+    	    	    			else {
+    	    	    				$a_class = "dropdown-toggle";
+    	    	    				$a_href = "#";
+    	    	    				$a_id = "navbarDropdown_".$value['ID'];
+    	    	    				$li_class = "dropdown";
+    	    	    				$a_attr = 'role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"';
+    	    	    			}
+    	    	    	?>
+                        <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li> -->
+	    	    			<li class="nav-item <?= $li_class; ?>">
+    	    	    				<a class="nav-link <?= $a_class; ?>" href="<?= $a_href; ?>" id="<?= $a_id; ?>" <?= $a_attr; ?> > 
+    	    	    					<?= $value['title']; ?>
+    	    	    				</a>
+    	    	    		</li>
+                    	<?php } ?>
+
+    	    	    	<?php 
+    	    	    		foreach ($woo_menu as $key => $value) {
+    	    	    			$a_class = "";
+    	    	    			$a_href = "";
+    	    	    			$a_id = "";
+    	    	    			$a_attr = "";
+    	    	    			$li_class = "";
+    	    	    			if ( empty($value['menu_child']) ) {
+    	    	    				$a_class = "js-scroll-trigger";
+    	    	    				$a_href = $value['url'];
+    	    	    			}
+    	    	    			else {
+    	    	    				$a_class = "dropdown-toggle";
+    	    	    				$a_href = "#";
+    	    	    				$a_id = "navbarDropdown_".$value['ID'];
+    	    	    				$li_class = "dropdown";
+    	    	    				$a_attr = 'role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"';
+    	    	    			}
+    	    	    	?>
+                        <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li> -->
+	    	    			<li class="nav-item <?= $li_class; ?>">
+    	    	    				<a class="nav-link <?= $a_class; ?>" href="<?= $a_href; ?>" id="<?= $a_id; ?>" <?= $a_attr; ?> > 
+    	    	    					<?= $value['title']; ?>
+    	    	    				</a>
+    	    	    		</li>
+                    	<?php } ?>
+
                     </ul>
                 </div>
             </div>
