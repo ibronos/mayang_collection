@@ -21,6 +21,7 @@ $soc_med = get_field("social_media", $frontpage_id);
 					<div class="row">
 				          <div class="col-12 col-md">
 				            <!-- <img class="mb-2" src="../../assets/brand/bootstrap-solid.svg" alt="" width="24" height="24"> -->
+				            <img class="img-fluid w-100" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo1.png">
 				            <small class="d-block mb-3 text-muted">Copyright © 2020 - Mayang Collection</small>
 				          </div>
 				          <div class="col-6 col-md">

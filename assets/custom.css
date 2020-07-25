@@ -64,7 +64,6 @@
     border-left-width: 0px;
 }
 
-
 #subscribe-form {
 	/*border: 4px solid var(--primary);*/
 	border-top-color: rgb(206, 212, 218);
@@ -80,6 +79,7 @@
     border-left-style: solid;
     border-left-width: 0px;
 }
+
 
 @media screen and (max-width: 768px) {
   #mainNav {

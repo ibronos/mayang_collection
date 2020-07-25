@@ -85,7 +85,9 @@
                 </div>
 
                 <div class="navbar-nav  col-4 justify-content-center">
-                	<a class="navbar-brand js-scroll-trigger" href="#page-top">Mayang Collection</a>
+                	<a class="navbar-brand js-scroll-trigger" href="#page-top">
+						<img class="img-fluid img-thumbnail w-70 h-70" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo1.png">                		
+                	</a>
                 </div>
 
                 <div class="col-4  d-flex justify-content-end"> 
@@ -140,7 +142,9 @@
         <!-- Mobile Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mobileNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+                <a class="navbar-brand js-scroll-trigger w-50" href="#page-top">
+                	<img class="img-thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo1.png">
+                </a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
@@ -238,10 +242,11 @@
 			  	 $index_slide2 = 0;
 			  	 foreach ($slide as $key) {
 			  	 	$active2 = $index_slide2 == 0 ? 'active' : '';
-			  	 	if ($key) {
+			  	 	if ($key) { 
+			  	 		// var_dump($key['sizes']);
 			  	 ?>
 			    <div class="carousel-item <?= $active2; ?>">
-			      <img class="d-block w-100" src="<?= $key['sizes']['2048x2048']; ?>" alt="slide_<?= $key['ID']; ?>">
+			      <img class="d-block w-100" src="<?= $key['sizes']['1536x1536']; ?>" alt="slide_<?= $key['ID']; ?>">
 			    </div>
 				<?php 
 					$index_slide2++;
