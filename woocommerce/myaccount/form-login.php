@@ -23,7 +23,7 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 
 <div class="row" id="customer_login">
 
-	<div class="col-md-6">
+	<div class="col-md-6 pb-1">
 		<div class="card">
 		  <div class="card-header">
 		    <?php esc_html_e( 'Login', 'woocommerce' ); ?>
@@ -75,7 +75,7 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 
 
 <?php if ( 'yes' === get_option( 'woocommerce_enable_myaccount_registration' ) ) : ?>
-	<div class="col-md-6">
+	<div class="col-md-6 pb-2">
 		<div class="card">
 		  <div class="card-header">
 		    <?php esc_html_e( 'Register', 'woocommerce' ); ?>

@@ -12,6 +12,8 @@
     $menu = mc_menu('menu-1');
     $woo_menu = mc_menu('woocommerce-menu');
     $slide = get_field( "slide_header" );
+    $myaccount = get_permalink( wc_get_page_id( 'myaccount' ) );
+    $shop = get_permalink( wc_get_page_id( 'shop' ) );
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -113,11 +115,17 @@
     	    	    	?>
     	    	    			<li class="nav-item <?= $li_class; ?>">
     	    	    				<a class="nav-link <?= $a_class; ?>" href="<?= $a_href; ?>" id="<?= $a_id; ?>" <?= $a_attr; ?> >
-    	    	    				<?php if ( $value['title'] == 'Shop' ) { ?>	
+    	    	    				<?php if ( $a_href == $shop ) { ?>	
 	    	    	    			<i class="fa fa-shopping-bag" id="shop-nav" aria-hidden="true"></i>
-	    	    	    			<?php } else { 
-	    	    	    				echo $value['title']; 
-    	    	    				 } 
+	    	    	    			<?php } 
+                                          if ( $a_href == $myaccount ) { 
+	    	    	    				     if (is_user_logged_in()) {
+                                                echo "My Account";
+                                             }
+                                             else {
+                                                echo $value['title'];
+                                             }
+    	    	    				      } 
     	    	    				 ?>   	    						
     	    	    				</a>
     	    	    				
@@ -209,19 +217,8 @@
 
 
         <!-- Masthead-->
+        <?php if ( is_front_page() && !empty($slide) ) : ?>
         <header>
-        	<?php if ( empty($slide) ) : ?>
-        	<div class="masthead">
-	             <div class="container h-100">
-	                <div class="row h-100 align-items-center justify-content-center text-center">
-	                    <div class="col-lg-10 align-self-end">
-	                        <h1 class="text-uppercase text-white font-weight-bold">Mayang Collection</h1>
-	                    </div>
-	                </div>
-	             </div>
-        	</div>
-
-            <?php else : ?>
             <div id="carouselMayang" class="carousel slide" data-ride="carousel">
 			  <ol class="carousel-indicators">
 			  	<?php 
@@ -263,5 +260,6 @@
 			    <span class="sr-only">Next</span>
 			  </a>
 			</div>
-            <?php endif; ?>
+           
         </header>
+         <?php endif; ?>

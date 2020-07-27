@@ -12,6 +12,7 @@
 $frontpage_id = get_option( 'page_on_front' );
 $info = get_field("info", $frontpage_id);
 $soc_med = get_field("social_media", $frontpage_id);
+$myaccount = get_permalink( wc_get_page_id( 'myaccount' ) );
 
 ?>
 
@@ -102,11 +103,23 @@ $soc_med = get_field("social_media", $frontpage_id);
 
 				            <h5>Akun</h5>
 				            <ul class="list-unstyled text-small">
-					              <li><a class="text-muted" href="">Register</a></li>
-  					              <li><a class="text-muted" href="">Login</a></li>
+				            	<?php 
+		            		     if (is_user_logged_in()) {
+                                 ?>
+                                 <li><a class="text-muted" href="<?= $myaccount; ?>">My Account</a></li>
+                                 <?php
+                                 }
+                                 else {
+                                 ?>
+ 					              <li><a class="text-muted" href="<?= $myaccount; ?>">Register</a></li>
+  					              <li><a class="text-muted" href="<?= $myaccount; ?>">Login</a></li>
+                                 <?php
+                                 }
+				            	?>
+
 					        </ul>
 
-					        <a class="btn btn-primary" href="">Contact</a>
+					        <a class="btn btn-primary" href="tel:<?= $info['no_telp']; ?>">Contact</a>
 				          </div>
 					</div>
 	            </div>
