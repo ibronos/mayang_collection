@@ -31,23 +31,27 @@ $image_url = wp_get_attachment_url($image_id, 'small');
 $wishlist = get_permalink( wc_get_page_id( 'shop' ) ).'?add_to_wishlist=';
 $link = $product->get_permalink();
 
-
 ?>
 <div class="col-lg-4 col-md-6 mb-4 <?php wc_product_class( '', $product ); ?>">
-	<div class="card h-100">
+	<div class="card h-85">
 	  <a href="<?= $link; ?>">
 	  	<img class="card-img-top" src="<?= $image_url; ?>" alt="">
+	  	<div class="card-header" style="margin-top: -20%; ">
+		  	<span class="badge badge-secondary">New</span>
+		  	<span class="badge badge-info">20%</span>
+	  	</div>
 	  </a>
-	  <div class="card-body">
+	  <div class="card-body border-bottom-0">
 	    <h4 class="card-title">
 	      <a href="<?= $link; ?>"><?= $data['name']; ?></a>
 	    </h4>
 	  </div>
-	  <div class="card-footer bg-white">
+	  <div class="card-footer bg-white pt-0 pb-0 border-top-0">
 	    <div class="row">
 	    	<div class="col-md-6"><a href="<?= $wishlist.$data['id']; ?>"><i class="fa fa-heart" aria-hidden="true"></a></i></div>
 	    	<div class="col-md-6"><p>Rp. <?= $data['price']; ?></p></div>
 	    </div>
+
 	  </div>
 	</div>
 </div>

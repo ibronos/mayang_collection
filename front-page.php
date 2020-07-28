@@ -15,7 +15,9 @@
 get_header();
 $menu_katalog = get_field('menu_katalog');
 $product_args = array(
-	'post_status' => 'published',
+	'post_status' => 'publish',
+    'posts_per_page' => 4, 
+    'order' => 'DESC', 
 );
 $products = wc_get_products( $product_args );
 

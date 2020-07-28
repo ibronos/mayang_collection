@@ -40,6 +40,7 @@
       $("#mainNav").removeClass("navbar-scrolled");
     }
   };
+
   // Collapse now if page is not at top
   navbarCollapse();
   // Collapse the navbar when page is scrolled
@@ -60,5 +61,6 @@
       tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
     }
   });
+
 
 })(jQuery); // End of use strict

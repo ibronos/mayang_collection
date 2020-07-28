@@ -88,7 +88,7 @@
 
                 <div class="navbar-nav  col-4 justify-content-center">
                 	<a class="navbar-brand js-scroll-trigger" href="#page-top">
-						<img class="img-fluid img-thumbnail w-70 h-70" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo1.png">                		
+						<img class="img-fluid img-thumbnail" style="max-width: 75%;" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo1.png">                		
                 	</a>
                 </div>
 
