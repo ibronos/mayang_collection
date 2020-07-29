@@ -78,4 +78,10 @@
     $("#mySidenav").addClass("closeSideNav");
  });
 
+
+ $('.woocommerce-billing-fields input').addClass('form-control mr-sm-2');
+ $('.woocommerce-billing-fields p').addClass('d-flex justify-content-between');
+ $( "#billing_state_field" ).before( '<div class="form-inline">' ); 
+ $( "#billing_address_2_field" ).after( "</div>" ); 
+
 })(jQuery); // End of use strict
