@@ -36,7 +36,7 @@ $link = $product->get_permalink();
 	<div class="card h-85">
 	  <a href="<?= $link; ?>">
 	  	<img class="card-img-top" src="<?= $image_url; ?>" alt="">
-	  	<div class="card-header" style="margin-top: -20%; ">
+	  	<div class="card-img-overlay" style="top: 60%; ">
 		  	<span class="badge badge-secondary">New</span>
 		  	<span class="badge badge-info">20%</span>
 	  	</div>

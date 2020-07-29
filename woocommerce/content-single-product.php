@@ -36,7 +36,9 @@ $image_id = $product->get_image_id();
 $gallery_ids = $product->get_gallery_image_ids();
 $frontpage_id = get_option( 'page_on_front' );
 $soc_med = get_field("social_media", $frontpage_id);
-// var_dump($soc_med);
+$wishlist = get_permalink(get_the_ID()).'?add_to_wishlist='.get_the_ID();
+$cart = get_permalink(get_the_ID()).'?add-to-cart='.get_the_ID();
+
 ?>
 
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?> style="margin-top: 8%;">
@@ -177,12 +179,19 @@ $soc_med = get_field("social_media", $frontpage_id);
 							    </div>
 							    	
 							    <div class="d-flex justify-content-center mt-2">
-								    <button class="btn btn-secondary btn-sm btn-block">Beli Sekarang</button>
+								    <a href="<?= $cart; ?>" class="btn btn-secondary btn-sm btn-block" id="single-product-cart">Beli Sekarang</a>
+
+							<!-- 	    <form class="cart" action="<?= get_permalink(get_the_ID()); ?>" method="post" enctype="multipart/form-data">
+										<button type="submit" name="add-to-cart" value="<?= get_the_ID(); ?>" class="single_add_to_cart_button button alt">Add to cart</button>
+									</form> -->
 								</div>
 
 							    <div class="d-flex justify-content-center mt-1">
-								    <a href="">Add to Wishlist</a>
+								    <a href="<?= $wishlist; ?>">Add to Wishlist</a>
 								</div>
+
+								<button id="openNav" style="display: none;">Open</button>
+
 
 							    <div class="card border-0" id="single-product-share">
 							    	<div class="card-header bg-white border-0 p-0">

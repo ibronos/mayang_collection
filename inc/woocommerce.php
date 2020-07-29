@@ -225,3 +225,5 @@ if ( ! function_exists( 'mc_woocommerce_header_cart' ) ) {
 		<?php
 	}
 }
+
+

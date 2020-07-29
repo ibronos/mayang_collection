@@ -62,5 +62,20 @@
     }
   });
 
+  $('#single-product-cart').click(function() {
+    // $('#cartModal').modal('show');
+    $("#mySidenav").removeClass("closeSideNav");
+    $("#mySidenav").addClass("showSideNav");
+  });
+
+ $('#openNav').click(function() {
+   document.getElementById("mySidenav").style.width = "250px";
+  });
+
+ $('#closeNav').click(function() {
+   // document.getElementById("mySidenav").style.width = "0";
+    $("#mySidenav").removeClass("showSideNav");
+    $("#mySidenav").addClass("closeSideNav");
+ });
 
 })(jQuery); // End of use strict

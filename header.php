@@ -14,6 +14,7 @@
     $slide = get_field( "slide_header" );
     $myaccount = get_permalink( wc_get_page_id( 'myaccount' ) );
     $shop = get_permalink( wc_get_page_id( 'shop' ) );
+    $cart = get_permalink( wc_get_page_id( 'cart' ) );
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -115,7 +116,7 @@
     	    	    	?>
     	    	    			<li class="nav-item <?= $li_class; ?>">
     	    	    				<a class="nav-link <?= $a_class; ?>" href="<?= $a_href; ?>" id="<?= $a_id; ?>" <?= $a_attr; ?> >
-    	    	    				<?php if ( $a_href == $shop ) { ?>	
+    	    	    				<?php if ( $a_href == $cart ) { ?>	
 	    	    	    			<i class="fa fa-shopping-bag" id="shop-nav" aria-hidden="true"></i>
 	    	    	    			<?php } 
                                           if ( $a_href == $myaccount ) { 
