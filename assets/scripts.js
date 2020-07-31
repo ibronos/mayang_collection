@@ -89,6 +89,8 @@
  $('.shipping_address p').addClass('d-flex justify-content-between');
  $('.shipping_address input').addClass('form-control'); 
  $('#order_comments_field textarea').attr('cols', '20');
+ $('#order_comments_field textarea').addClass('form-control'); 
+ $('#ambil-outlet input').addClass('form-control'); 
 
 
 // woocommerce pagination

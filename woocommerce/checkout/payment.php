@@ -23,7 +23,7 @@ if ( ! is_ajax() ) {
 ?>
 
 <div id="payment" class="woocommerce-checkout-payment">
-	<div class="form-row place-order">
+	<div class="form-row place-order d-flex justify-content-center">
 		<noscript>
 			<?php
 			/* translators: $1 and $2 opening and closing emphasis tags respectively */
@@ -35,8 +35,10 @@ if ( ! is_ajax() ) {
 		<?php wc_get_template( 'checkout/terms.php' ); ?>
 
 		<?php do_action( 'woocommerce_review_order_before_submit' ); ?>
-
-		<?php echo apply_filters( 'woocommerce_order_button_html', '<button type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="' . esc_attr( $order_button_text ) . '" data-value="' . esc_attr( $order_button_text ) . '">' . esc_html( $order_button_text ) . '</button>' ); // @codingStandardsIgnoreLine ?>
+			
+		<?php echo apply_filters( 'woocommerce_order_button_html', '<button type="submit" class="btn btn-primary button alt" name="woocommerce_checkout_place_order" id="place_order" value="' . 'Pesan' . '" data-value="' . esc_attr( $order_button_text ) . '">' . esc_attr( $order_button_text ) . '</button>' ); 
+			// @codingStandardsIgnoreLine 
+		?>
 
 		<?php do_action( 'woocommerce_review_order_after_submit' ); ?>
 

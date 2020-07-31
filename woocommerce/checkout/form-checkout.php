@@ -46,17 +46,39 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 			<?php endif; ?>
 
-			<div class="card mt-1">
-				<div class="card-header">Metode Pembayaran</div>
+			<div class="card mt-2">
+				<div class="card-header">
+					<h5 class="card-title"> 
+						Metode Pembayaran
+					</h5>
+				</div>
 				<div class="card-body">
 					<?php wc_get_template( 'checkout/list-payment.php' ); ?>
 				</div>
-				
+			</div>
+
+			<div class="card mt-2">
+				<div class="card-header">
+					<h5 class="card-title"> 
+						Metode Pengiriman
+					</h5>
+				</div>
+				<div class="card-body">
+					<?php wc_get_template( 'checkout/list-kurir.php' ); ?>
+				</div>
 			</div>
 
 		 </div>
 
 		 <div class="col-md-6">
+		 	<div class="card">
+		 		<div class="card-header">
+		 			<h5 id="checkout-list-barang"><?php esc_html_e( 'Barang yang Dipesan', 'woocommerce' ); ?></h5>
+		 		</div>
+		 		<div class="card-body">
+		 			<?php wc_get_template( 'checkout/list-barang.php' ); ?>
+		 		</div>
+		 	</div>
 		 	<div class="card">
 		 		<div class="card-header">
 			 		<?php do_action( 'woocommerce_checkout_before_order_review_heading' ); ?>

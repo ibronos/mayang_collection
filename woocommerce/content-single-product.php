@@ -181,8 +181,10 @@ $cart = get_permalink(get_the_ID()).'?add-to-cart='.get_the_ID();
 							    <div class="d-flex justify-content-center mt-2">
 								    <a href="<?= $cart; ?>" class="btn btn-secondary btn-sm btn-block" id="single-product-cart">Beli Sekarang</a>
 
-							<!-- 	    <form class="cart" action="<?= get_permalink(get_the_ID()); ?>" method="post" enctype="multipart/form-data">
-										<button type="submit" name="add-to-cart" value="<?= get_the_ID(); ?>" class="single_add_to_cart_button button alt">Add to cart</button>
+<!-- 								    <form class="cart w-100" action="<?= get_permalink(get_the_ID()); ?>" method="post" enctype="multipart/form-data">
+										<button type="submit" name="add-to-cart" value="<?= get_the_ID(); ?>" class="btn btn-secondary btn-sm btn-block single_add_to_cart_button button alt">
+											Beli Sekarang
+										</button>
 									</form> -->
 								</div>
 
