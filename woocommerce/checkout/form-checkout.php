@@ -32,9 +32,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 <form name="checkout" method="post" class="checkout woocommerce-checkout" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
 	<div class="row">
 		
-		 <div class="col-md-8">
-		 	
-		
+		 <div class="col-md-6">
 			<?php if ( $checkout->get_checkout_fields() ) : ?>
 
 				<?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
@@ -47,24 +45,36 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 				<?php do_action( 'woocommerce_checkout_after_customer_details' ); ?>
 
 			<?php endif; ?>
-			
-	
+
+			<div class="card mt-1">
+				<div class="card-header">Metode Pembayaran</div>
+				<div class="card-body">
+					<?php wc_get_template( 'checkout/list-payment.php' ); ?>
+				</div>
+				
+			</div>
 
 		 </div>
 
-		 <div class="col-md-4">
- 			<?php do_action( 'woocommerce_checkout_before_order_review_heading' ); ?>
-			
-			<h3 id="order_review_heading"><?php esc_html_e( 'Your order', 'woocommerce' ); ?></h3>
-			
-			<?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
+		 <div class="col-md-6">
+		 	<div class="card">
+		 		<div class="card-header">
+			 		<?php do_action( 'woocommerce_checkout_before_order_review_heading' ); ?>
+					<h5 id="order_review_heading"><?php esc_html_e( 'Detail Pesanan', 'woocommerce' ); ?></h5>
+		 		</div>
 
-			<div id="order_review" class="woocommerce-checkout-review-order">
-				<?php do_action( 'woocommerce_checkout_order_review' ); ?>
-			</div>
+		 		<div class="card-body">
+					<?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
+					<div id="order_review" class="woocommerce-checkout-review-order">
+						<?php do_action( 'woocommerce_checkout_order_review' ); ?>
+					</div>
+					<?php do_action( 'woocommerce_checkout_after_order_review' ); ?>	
+		 		</div>
+		 	</div>
+
 		 </div>
 		 
-		 <?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
+		
 	
 	</div>
 </form>

@@ -79,9 +79,23 @@
  });
 
 
- $('.woocommerce-billing-fields input').addClass('form-control mr-sm-2');
+// woocommerce checkout
+ $('.woocommerce-billing-fields input').addClass('form-control'); 
  $('.woocommerce-billing-fields p').addClass('d-flex justify-content-between');
- $( "#billing_state_field" ).before( '<div class="form-inline">' ); 
- $( "#billing_address_2_field" ).after( "</div>" ); 
+ $('.create-account input[type=text]').addClass('form-control');
+ $('.create-account input[type=password]').addClass('form-control');
+ $('.create-account p').addClass('d-flex justify-content-between');
+ $('#order_comments_field').addClass('d-flex justify-content-between');
+ $('.shipping_address p').addClass('d-flex justify-content-between');
+ $('.shipping_address input').addClass('form-control'); 
+ $('#order_comments_field textarea').attr('cols', '20');
+
+
+// woocommerce pagination
+$('.woocommerce-pagination .page-numbers').addClass('pagination');
+$('.woocommerce-pagination li').addClass('page-item');
+$('.woocommerce-pagination a').addClass('page-link');
+$('.woocommerce-pagination span').addClass('page-link bg-primary text-white');
+
 
 })(jQuery); // End of use strict

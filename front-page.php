@@ -29,12 +29,13 @@ $args = array(
 );
 $loop = new WP_Query( $args ); 
 
+
 ?>
     <!-- Subscribe-->
     <section class="page-section" id="subscribe">
         <div class="container">
         	<div class="d-flex justify-content-center">
-        		<img class="img-fluid" src="http://localhost:8080/mayang/wp-content/uploads/2020/07/subsrcibe.png">
+        		<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/img/subsrcibe.png">
         	</div>
         	<div class="container" id="container-subscribe">
 		       <form>
@@ -119,24 +120,22 @@ $loop = new WP_Query( $args );
     		</div>
     	</div>
         <div class="container-fluid p-0">
-            <div class="row no-gutters">
+            <div class="row no-gutters" style="background-color: var(--info);">
             	<?php
         		$x = 1; 
             	while ( $loop->have_posts() ) {
             		$loop->the_post(); 
-    				$img_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
+    				$img_url = get_the_post_thumbnail_url( get_the_ID(), '500x375_size' );
     				if ($x == 1 || $x == 2) {    				
 			    ?>
 			   		<div class="col-md-6" id="home-post-col">
 			   			<a href="<?php the_permalink(); ?>">
 				   			<div class="row no-gutters">
 				                <div class="col-lg-6 col-sm-6">
-			                        <img class="img-fluid" src="<?= $image_url; ?>" alt="<?php the_title(); ?>" />
+			                        <img class="img-fluid" src="<?= $img_url; ?>" alt="<?php the_title(); ?>" />
 				                </div>
-				                <div class="col-lg-6 col-sm-6 align-items-center text-center" id="home-post-column-title">
-			                        <div id="home-post-title">
+				                <div class="col-lg-6 col-sm-6 d-flex justify-content-center align-self-center">
 			                        	<h5 class="title"><?php the_title(); ?></h5>
-			                        </div>		                    	
 				                </div>
 				   			</div>
 			   			</a>
@@ -150,13 +149,11 @@ $loop = new WP_Query( $args );
 	            	<div class="col-md-6" id="home-post-col">
 	            		<a href="<?php the_permalink(); ?>">
 		            		<div class="row no-gutters">
-				                <div class="col-lg-6 col-sm-6 align-items-center text-center" id="home-post-column-title">
-			                        <div id="home-post-title">
+				                <div class="col-lg-6 col-sm-6 d-flex justify-content-center align-self-center">
 			                        	<h5 class="title"><?php the_title(); ?></h5>
-			                        </div>	
 				                </div>
 				                <div class="col-lg-6 col-sm-6">
-			                        <img class="img-fluid" src="<?= $image_url; ?>" alt="<?php the_title(); ?>" />
+			                        <img class="img-fluid" src="<?= $img_url; ?>" alt="<?php the_title(); ?>" />
 				                </div>
 		            		</div>
 		            	</a>

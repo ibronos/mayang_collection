@@ -12,15 +12,12 @@
 	padding-bottom: 3%;
 }
 
-#home-post-title {
-	margin-top: 50%;
-}
 
 #home-post-column-title {
 	background-color: var(--gray);
 }
 
-#home-post-title .title {
+#home-post .title {
 	color: white;
 }
 
@@ -87,18 +84,27 @@
 }
 
 @media screen and (max-width: 768px) {
-  #mainNav {
-  	display: none !important;
-  }  
+    #mainNav {
+    	display: none !important;
+    }  
 
-  #mobileNav {
-  	display: block;
-  }
+    #mobileNav {
+    	display: block;
+    }
 
-  #container-subscribe {
-	width: 100%;
+    #container-subscribe {
+  	 width: 100%;
+    }
+
 }
 
+.woocommerce-input-wrapper {
+  width: 50%;
+}
+
+#shipping_method {
+  list-style: none;
+  padding-left: 0;
 }
 
 

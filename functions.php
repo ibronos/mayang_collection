@@ -47,6 +47,23 @@ if ( ! function_exists( 'mc_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
+		// add image crop size
+		add_image_size( '1440x617_size', 1440, 617, true );
+		add_image_size( '1220x686_size', 1220, 686, true );
+		add_image_size( '1220x523_size', 1220, 523, true );
+		add_image_size( '980x735_size', 980, 735, true );
+		add_image_size( '980x552_size', 980, 552, true );
+		add_image_size( '980x420_size', 980, 420, true );
+		add_image_size( '740x317_size', 740, 317, true );
+		add_image_size( '740x555_size', 740, 555, true );
+		add_image_size( '740x416_size', 740, 416, true );
+		add_image_size( '740x494_size', 740, 494, true );
+		add_image_size( '500x375_size', 500, 375, true );
+		add_image_size( '500x334_size', 500, 334, true );
+		add_image_size( '500x282_size', 500, 282, true );
+		add_image_size( '300x169_size', 300, 169, true );
+		add_image_size( '300x129_size', 300, 129, true );
+
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
