@@ -98,7 +98,7 @@ $loop = new WP_Query( $args );
     				$image_url = wp_get_attachment_url($image_id, 'small');
     			?>
     			<div class="col-md-3">
-    				<a href="">
+    				<a href="<?= $value->get_permalink(); ?>">
 					  <div class="card img-fluid" style="width:500px">
 					    <img class="card-img-top" src="<?= $image_url; ?>" alt="Card image" style="width:100%">
 					    <div class="card-footer text-center">

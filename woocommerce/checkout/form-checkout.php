@@ -57,7 +57,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 				</div>
 			</div>
 
-			<div class="card mt-2">
+			<div class="card mt-2 pb-2">
 				<div class="card-header">
 					<h5 class="card-title"> 
 						Metode Pengiriman
@@ -79,7 +79,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 		 			<?php wc_get_template( 'checkout/list-barang.php' ); ?>
 		 		</div>
 		 	</div>
-		 	<div class="card">
+		 	<div class="card mt-2">
 		 		<div class="card-header">
 			 		<?php do_action( 'woocommerce_checkout_before_order_review_heading' ); ?>
 					<h5 id="order_review_heading"><?php esc_html_e( 'Detail Pesanan', 'woocommerce' ); ?></h5>
