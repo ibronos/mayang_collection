@@ -38,6 +38,21 @@ $frontpage_id = get_option( 'page_on_front' );
 $soc_med = get_field("social_media", $frontpage_id);
 $wishlist = get_permalink(get_the_ID()).'?add_to_wishlist='.get_the_ID();
 $cart = get_permalink(get_the_ID()).'?add-to-cart='.get_the_ID();
+$perawatan = $data['short_description'];
+
+$attr_warna = get_the_terms( get_the_ID() , 'pa_warna' );
+$attr_ukuran =  get_the_terms( get_the_ID() , "pa_ukuran");
+$attr_outlet =  get_the_terms( get_the_ID() , "pa_outlet");
+
+$related_args = array(
+	'post_status' => 'publish',
+    'posts_per_page' => 4, 
+    'order' => 'DESC', 
+    'post__not_in' => array( get_the_ID() )
+);
+$related = wc_get_products( $product_args );
+
+var_dump($attr_warna);
 
 ?>
 
@@ -109,11 +124,17 @@ $cart = get_permalink(get_the_ID()).'?add-to-cart='.get_the_ID();
 							    		Warna
 							    	</div>
 							    	<div class="card-body pt-0 pb-0">
-							    		<div class="btn-group" role="group" aria-label="Basic example">
-										  <a type="button" class="btn btn-primary"></a>
-										  <a type="button" class="btn btn-secondary"></a>
-										  <a type="button" class="btn btn-danger"></a>
-										  <a type="button" class="btn btn-secondary"></a>
+							    		<div class="btn-group btn-group-toggle" data-toggle="buttons">
+							    			<?php
+							    			if ( $attr_warna && !empty($attr_warna) ) {	
+								    			foreach ( $attr_warna as $key ) {
+													$hex = get_field("kode_warna", $key->taxonomy . '_' . $key->term_id );
+													$checked = $key == 0 ? 'checked' : '';
+							    			?>
+											  <label class="btn btn-lg" style="background-color: <?= $hex; ?> ;">
+										    		<input type="radio" name="kode_warna" id="kode_warna_<?= $key->term_id; ?>" autocomplete="off" <?= $checked; ?>>
+										  	  </label>
+											<?php } } ?>
 										</div>
 							    	</div>
 							    </div>
@@ -126,25 +147,47 @@ $cart = get_permalink(get_the_ID()).'?add-to-cart='.get_the_ID();
 										  </div>
 							    	</div>
 							    	<div class="card-body collapse" id="single-product-size-body">
-							    		<ul>
-							    			<li>asd</li>
-							    			<li>asdas</li>
-							    		</ul>
+							    		
+						    			<?php
+						    			if ( $attr_ukuran && !empty( $attr_ukuran ) ) {	
+							    			foreach ( $attr_ukuran as $key ) {
+						    			?>
+						    			<div class="form-check">
+										  <label class="form-check-label">
+										    <input type="radio" class="form-check-input" name="size" value="<?= $key->term_id; ?>">
+										    <?= $key->name; ?>
+										  </label>
+										</div>
+										<?php } } ?>
+										
 							    	</div>
 							    </div>
 
 							    <div class="card border-0" id="single-product-ukuran">
 							    	<div class="card-header bg-white collapsed" data-toggle="collapse" data-target="#single-product-ukuran-body" aria-expanded="false" aria-controls="single-product-ukuran-body">
 							    		<div class="d-flex justify-content-between">
-										    <div class="">Ukuran</div>
+										    <div class="">Detail Ukuran</div>
 										    <div class=""><i class="fa fa-caret-down" aria-hidden="true"></i></div>
 										  </div>
 							    	</div>
 							    	<div class="card-body collapse" id="single-product-ukuran-body">
-							    		<ul>
-							    			<li>asd</li>
-							    			<li>asdas</li>
-							    		</ul>
+							    		<ul class="">
+							    		   <?php
+							    			if ( $attr_ukuran && !empty( $attr_ukuran ) ) {	
+								    			foreach ( $attr_ukuran as $key ) {
+							    		   ?>
+										  <li class="">
+										  	<p>
+										  		<?php 
+										  			echo $key->name;
+										  			if (!empty($key->description)) {
+										  				echo ' - '.$key->description;
+										  			}
+										  		?> 										  			
+										  	</p>
+										  </li>
+										  <?php } } ?>
+										</ul>
 							    	</div>
 							    </div>
 
@@ -156,10 +199,7 @@ $cart = get_permalink(get_the_ID()).'?add-to-cart='.get_the_ID();
 										  </div>
 							    	</div>
 							    	<div class="card-body collapse" id="single-product-perawatan-body">
-							    		<ul>
-							    			<li>asd</li>
-							    			<li>asdas</li>
-							    		</ul>
+							    		<p> <?= $perawatan; ?> </p>
 							    	</div>
 							    </div>
 
@@ -171,18 +211,24 @@ $cart = get_permalink(get_the_ID()).'?add-to-cart='.get_the_ID();
 										  </div>
 							    	</div>
 							    	<div class="card-body collapse" id="single-product-outlet-body">
-							    		<ul>
-							    			<li>asd</li>
-							    			<li>asdas</li>
-							    		</ul>
+							    		<ul class="">
+							    		   <?php
+							    			if ( $attr_outlet && !empty( $attr_outlet ) ) {	
+								    			foreach ( $attr_outlet as $key ) {
+							    		   ?>
+										  <li class="">
+										  	<p><?= $key->name; ?></p>
+										  </li>
+										  <?php } } ?>
+										</ul>
 							    	</div>
 							    </div>
 							    	
 							    <div class="d-flex justify-content-center mt-2">
-								    <a href="<?= $cart; ?>" class="btn btn-secondary btn-sm btn-block" id="single-product-cart">Beli Sekarang</a>
+								    <a href="<?= $cart; ?>" class="btn btn-primary btn-sm btn-block" id="single-product-cart">Beli Sekarang</a>
 
-<!-- 								    <form class="cart w-100" action="<?= get_permalink(get_the_ID()); ?>" method="post" enctype="multipart/form-data">
-										<button type="submit" name="add-to-cart" value="<?= get_the_ID(); ?>" class="btn btn-secondary btn-sm btn-block single_add_to_cart_button button alt">
+						<!-- 		    <form class="cart w-100" action="<?= get_permalink(get_the_ID()); ?>" method="post" enctype="multipart/form-data">
+										<button type="submit" name="add-to-cart" value="<?= get_the_ID(); ?>" class="btn btn-primary btn-sm btn-block single_add_to_cart_button button alt">
 											Beli Sekarang
 										</button>
 									</form> -->
@@ -241,6 +287,33 @@ $cart = get_permalink(get_the_ID()).'?add-to-cart='.get_the_ID();
 			</div>
 		</div>
 
+		<!-- related product -->
+		<section id="carousel-katalog">
+			<div class="card mt-5">
+				<div class="card-body">
+					<div class="row">
+						<?php foreach($related as $key => $value) { 
+							$data = $value->get_data();
+							$image_id = $value->get_image_id();
+							$image_url = wp_get_attachment_url($image_id, 'small');
+						?>
+						<?php if( $key <= 3 ) { ?>
+						<div class="col-md-3">
+							<a href="<?= $value->get_permalink(); ?>">
+							  <div class="card img-fluid" style="width:500px">
+							    <img class="card-img-top" src="<?= $image_url; ?>" alt="Card image" style="width:100%">
+							    <div class="card-footer text-center">
+							    	<?php echo $value->get_title(); ?>		
+							    </div>
+							  </div> 
+							</a>
+						</div>
+						<?php } } ?>
+					</div>
+				</div>
+			</div>
+		</section>
+
 
 		<?php
 		/**
@@ -256,3 +329,23 @@ $cart = get_permalink(get_the_ID()).'?add-to-cart='.get_the_ID();
 	</div>
 </div>
 <?php //do_action( 'woocommerce_after_single_product' ); ?>
+
+
+<!-- sidenav -->
+<div id="mySidenav" class="sidenav showSideNav">
+  
+  <div class="container">
+	  <a href="javascript:void(0)" class="closebtn" id="closeNav">&times;</a>
+	  <div class="card mt-4">
+	  	<div class="card-header">
+	  		Keranjang Belanja Anda
+	  	</div>
+	  	<div class="card-body">
+	  		<?php wc_get_template( 'checkout/list-barang.php' ); ?>
+	  	</div>
+	  	<div class="card-footer">
+	  		<a href="" class="btn btn-info">Pembayaran</a>
+	  	</div>
+	  </div>
+  </div>
+</div>

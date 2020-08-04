@@ -1,3 +1,5 @@
+<?php if( !empty( WC()->cart->get_cart() ) ) : ?>
+
 <ul class="list-group list-group-flush">
 <?php
 foreach ( WC()->cart->get_cart() as $cart_item ) {
@@ -35,7 +37,7 @@ foreach ( WC()->cart->get_cart() as $cart_item ) {
 		</div>
 	</li>
 	<hr>
-
-	
 <?php } ?>
 </ul>
+
+<?php endif; ?>

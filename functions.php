@@ -154,6 +154,18 @@ function mc_widgets_init() {
 			'after_title'   => '</h2>',
 		)
 	);
+
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Sidebar Woo', 'mc' ),
+			'id'            => 'sidebar-woo',
+			'description'   => esc_html__( 'Add widgets here.', 'mc' ),
+			'before_widget' => '<div id="%1$s" class="card mt-2 widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<div class="card-header"><h5 class="widget-title">',
+			'after_title'   => '</h5></div>',
+		)
+	);
 }
 add_action( 'widgets_init', 'mc_widgets_init' );
 
@@ -248,3 +260,5 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woo-custom-checkout.php';
 }
 
+
+// var_dump($_REQUEST); exit;

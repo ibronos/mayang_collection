@@ -16,29 +16,6 @@ $myaccount = get_permalink( wc_get_page_id( 'myaccount' ) );
 
 ?>
 
-
-<div id="mySidenav" class="sidenav closeSideNav">
-  <a href="javascript:void(0)" class="closebtn" id="closeNav">&times;</a>
-  <div class="container">
-  		  <div class="card">
-  	<div class="card-header">
-  		Keranjang Belanja Anda
-  	</div>
-  	<div class="card-body">
-  		  <a href="#">About</a>
-		  <a href="#">Services</a>
-		  <a href="#">Clients</a>
-		  <a href="#">Contact</a>
-  	</div>
-  	<div class="card-footer">
-  		<a href="" class="btn btn-info">Pembayaran</a>
-  	</div>
-  </div>
-  </div>
-</div>
-
-
-
 	  <!-- The Cart Modal -->
 	  <div class="modal" id="cartModal">
 	    <div class="modal-dialog">

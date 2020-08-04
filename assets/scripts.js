@@ -99,5 +99,8 @@ $('.woocommerce-pagination li').addClass('page-item');
 $('.woocommerce-pagination a').addClass('page-link');
 $('.woocommerce-pagination span').addClass('page-link bg-primary text-white');
 
+//yith
+$('table.wishlist_table').addClass('table');
+
 
 })(jQuery); // End of use strict

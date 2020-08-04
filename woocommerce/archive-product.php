@@ -27,6 +27,7 @@ get_header();
 	          <a href="#" class="list-group-item">Category 2</a>
 	          <a href="#" class="list-group-item">Category 3</a>
 	        </div>
+	        <?php dynamic_sidebar( 'sidebar-woo' ); ?>
 	      </div>
 	      <!-- /.col-lg-3 -->
 
