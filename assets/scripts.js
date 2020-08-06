@@ -73,7 +73,6 @@
   });
 
  $('#closeNav').click(function() {
-   // document.getElementById("mySidenav").style.width = "0";
     $("#mySidenav").removeClass("showSideNav");
     $("#mySidenav").addClass("closeSideNav");
  });
@@ -91,6 +90,10 @@
  $('#order_comments_field textarea').attr('cols', '20');
  $('#order_comments_field textarea').addClass('form-control'); 
  $('#ambil-outlet input').addClass('form-control'); 
+
+ // woocommerce address
+ $('.woocommerce-address-fields input').addClass('form-control'); 
+ $('.woocommerce-address-fields p').addClass('d-flex justify-content-between');
 
 
 // woocommerce pagination

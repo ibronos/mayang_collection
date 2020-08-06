@@ -35,11 +35,12 @@ $data = $product->get_data();
 $image_id = $product->get_image_id();
 $gallery_ids = $product->get_gallery_image_ids();
 $frontpage_id = get_option( 'page_on_front' );
-$soc_med = get_field("social_media", $frontpage_id);
+// $soc_med = get_field("social_media", $frontpage_id);
 $wishlist = get_permalink(get_the_ID()).'?add_to_wishlist='.get_the_ID();
 $cart = get_permalink(get_the_ID()).'?add-to-cart='.get_the_ID();
 $perawatan = $data['short_description'];
 $stock_status = $data['stock_status'];
+$current_url = get_permalink(get_the_ID());
 
 $attr_warna = get_the_terms( get_the_ID() , 'pa_warna' );
 $attr_ukuran =  get_the_terms( get_the_ID() , "pa_ukuran");
@@ -253,29 +254,31 @@ $related = wc_get_products( $product_args );
 	    					            <ul class="list-unstyled text-small">
 								              <li>
 								              	<ul class="list-inline">
-				   			              		 <?php if( !empty($soc_med['facebook']) ) {  ?>
+				   			              		
 												  <li class="list-inline-item">
-												  	<a class="text-muted" href="<?= $soc_med['facebook']; ?>"><i class="fa fa-facebook" aria-hidden="true"></i> </a>
+												  	<a class="text-muted" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?= $current_url; ?>">
+												  		<i class="fa fa-facebook" aria-hidden="true"></i> 
+												  	</a>
 												  </li>
-												  <?php } ?>
-
-												  <?php if( !empty($soc_med['twitter']) ) {  ?>
+												 												
 												  <li class="list-inline-item">
-												  	<a class="text-muted" href="<?= $soc_med['twitter']; ?>"><i class="fa fa-twitter" aria-hidden="true"></i> </a>
+												  	<a class="text-muted" target="_blank" href="https://twitter.com/home?status=<?= $current_url; ?>">
+												  		<i class="fa fa-twitter" aria-hidden="true"></i> 
+												  	</a>
 												  </li>
-												   <?php } ?>
-
-			   									  <?php if( !empty($soc_med['instagram']) ) {  ?>
+												   
 												  <li class="list-inline-item">
-												  	<a class="text-muted" href="<?= $soc_med['instagram']; ?>"><i class="fa fa-instagram" aria-hidden="true"></i> </a>
+												  	<a class="text-muted" target="_blank" href="https://pinterest.com/pin/create/button/?url=<?= $current_url; ?>&media=&description=">
+												  		<i class="fa fa-pinterest" aria-hidden="true"></i> 
+												  	</a>
 												  </li>
-												   <?php } ?>
-
-			  									  <?php if( !empty($soc_med['youtube']) ) {  ?>
+												 
 												  <li class="list-inline-item">
-												  	<a class="text-muted" href="<?= $soc_med['youtube']; ?>"><i class="fa fa-youtube" aria-hidden="true"></i> </a>
+												  	<a class="text-muted" target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=<?= $current_url; ?>&title=&summary=&source=">
+												  		<i class="fa fa-linkedin" aria-hidden="true"></i> 
+												  	</a>
 												  </li>
-												   <?php } ?>
+												
 												</ul>
 								              </li>
 						            	</ul>
