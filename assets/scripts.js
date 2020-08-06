@@ -102,5 +102,52 @@ $('.woocommerce-pagination span').addClass('page-link bg-primary text-white');
 //yith
 $('table.wishlist_table').addClass('table');
 
+//archive filter
+$("#all").on("click", function(){
+    $("#min_price").val("0");
+    $("#max_price").val("9999999999");
+    $("#filter-submit").click();
+});
+$("#min_0").on("click", function(){
+    $("#min_price").val("0");
+    $("#max_price").val("100000");
+    $("#filter-submit").click();
+});
+$("#min_100").on("click", function(){
+    $("#min_price").val("100000");
+    $("#max_price").val("149000");
+    $("#filter-submit").click();
+});
+$("#min_150").on("click", function(){
+    $("#min_price").val("150000");
+    $("#max_price").val("199000");
+    $("#filter-submit").click();
+});
+$("#min_200").on("click", function(){
+    $("#min_price").val("200000");
+    $("#max_price").val("249000");
+    $("#filter-submit").click();
+
+});
+$("#min_250").on("click", function(){
+    $("#min_price").val("250000");
+    $("#max_price").val("349000");
+    $("#filter-submit").click();
+});
+$("#min_350").on("click", function(){
+    $("#min_price").val("350000");
+    $("#max_price").val("499000");
+    $("#filter-submit").click();
+});
+$("#min_450").on("click", function(){
+    $("#min_price").val("450000");
+    $("#max_price").val("999000");
+    $("#filter-submit").click();
+});
+$("#min_1000").on("click", function(){
+    $("#min_price").val("1000000");
+    $("#max_price").val("9999999999999");
+    $("#filter-submit").click();
+});
 
 })(jQuery); // End of use strict

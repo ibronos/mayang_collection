@@ -236,3 +236,20 @@ function new_loop_shop_per_page( $cols ) {
 }
 
 
+function exclude_single_posts_home($query) {
+	// var_dump($query->query_vars['tax_query']); exit;
+    // if ( $query->is_home() && $query->is_main_query() ) {
+    //     $query->set( 'post__not_in', array( 7, 11 ) );
+    // }
+}
+add_action( 'pre_get_posts', 'exclude_single_posts_home' );
+
+
+function add_query_vars_filter( $vars ){
+  $vars[] = "orderby";
+  $vars[] = "filter_warna";
+  return $vars;
+}
+
+//Add custom query vars
+add_filter( 'query_vars', 'add_query_vars_filter' );

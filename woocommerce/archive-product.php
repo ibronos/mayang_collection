@@ -17,17 +17,91 @@
 
 defined( 'ABSPATH' ) || exit;
 get_header();
+
+$attr_warna = get_terms( 'pa_warna' );
+
+function check_order( $val ) {
+	$order = '';
+	if ( $val == $_GET['orderby'] ) {
+		$order = 'checked';	
+	}
+	echo $order;
+}
+
+function check_warna( $val ) {
+	$warna = '';
+	if ( $val == $_GET['filter_warna'] ) {
+		$warna = 'button-shadow';	
+	}
+	echo $warna;
+}
+
+function check_range( $min, $max ) {
+	$range = '';
+	if ( $min == $_GET['min_price'] && $max == $_GET['max_price'] ) {
+		$range = 'checked';	
+	}
+	echo $range;
+}
+ 
 ?>
 <div class="container" style="margin-top: 8%;">
     <div class="row">
 
 	      <div class="col-lg-3">
-	        <div class="list-group">
-	          <a href="#" class="list-group-item">Category 1</a>
-	          <a href="#" class="list-group-item">Category 2</a>
-	          <a href="#" class="list-group-item">Category 3</a>
-	        </div>
-	        <?php dynamic_sidebar( 'sidebar-woo' ); ?>
+
+	      	<form class="woocommerce-ordering" action="" method="get">
+		      	<div class="card border-0">
+		      		<div class="card-body">
+		      			<div class="card-title">Sort By :</div>
+						  <input type="radio" name="orderby" value="price" <?php check_order( 'price' ); ?> onchange="this.form.submit()" checked> Harga Terendah <br>
+						  <input type="radio" name="orderby" value="price-desc" <?php check_order( 'price-desc' ); ?> onchange="this.form.submit()" > Harga Tertinggi <br>
+						  <input type="radio" name="orderby" value="date" <?php check_order( 'date' ); ?> onchange="this.form.submit()" > New Arrival
+		      		</div>
+		      	</div>
+
+		      	<div class="card mt-2 border-0">
+		      		<div class="card-body">
+			      		  <!-- <input type="radio" name="filter_warna" value="" checked> Semua <br> -->
+			      		  <div class="card-title">Warna</div>
+		  				   <div class="btn-group btn-group-toggle" data-toggle="buttons">
+			    			<?php
+			    			if ( $attr_warna && !empty($attr_warna) ) {	
+				    			foreach ( $attr_warna as $key ) {
+									$hex = get_field("kode_warna", $key->taxonomy . '_' . $key->term_id );
+			    			?>
+							  <label class="btn btn-lg <?php check_warna( $key->slug ); ?>" style="background-color: <?= $hex; ?> ;"  >
+						    		<input type="radio" name="filter_warna" value="<?= $key->slug; ?>" id="filter_warna<?= $key->term_id; ?>" onchange="this.form.submit()">
+						  	  </label>
+							<?php } } ?>
+						</div>
+
+		      		</div>
+		      	</div>
+        		<input type="hidden" id="min_price" name="min_price" value="0">
+			  	<input type="hidden" id="max_price" name="max_price" value="999999999999">
+		      	<button type="submit" id="filter-submit" style="display:none;">Submit</button>
+      		</form>
+
+	      	<div class="card mt-2 border-0">
+	      		<div class="card-body">
+	      			<div class="card-title">Harga</div>
+	      			<div class="price-range">
+						<input type="radio" name="range" id="all" <?php check_range('0', '9999999999'); ?> > Tampilkan semua <br>
+						<input type="radio" name="range" id="min_0" <?php check_range('0', '100000'); ?> > Dibawah 100.000 <br>
+						<input type="radio" name="range" id="min_100" <?php check_range('100000', '149000'); ?> > 100.000 - 149.000 <br>
+						<input type="radio" name="range" id="min_150" <?php check_range('150000', '199000'); ?> > 150.000 - 199.000 <br>
+						<input type="radio" name="range" id="min_200" <?php check_range('200000', '249000'); ?> > 200.000 - 249.000 <br>
+						<input type="radio" name="range" id="min_250" <?php check_range('250000', '349000'); ?> > 250.000 - 349.000 <br>
+						<input type="radio" name="range" id="min_350" <?php check_range('350000', '499000'); ?> > 350.000 - 499.000 <br>
+						<input type="radio" name="range" id="min_450" <?php check_range('450000', '999000'); ?> > 450.000 - 999.000 <br>
+						<input type="radio" name="range" id="min_1000" <?php check_range('1000000', '9999999999999'); ?> > 1.000.000 Ke Atas <br>
+	      			</div>
+	      		</div>
+	      	</div>
+
+	        <?php // dynamic_sidebar( 'sidebar-woo' ); ?>
+
 	      </div>
 	      <!-- /.col-lg-3 -->
 

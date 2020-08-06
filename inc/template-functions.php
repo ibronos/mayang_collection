@@ -54,3 +54,12 @@ function mc_menu($menuSlug) {
     }
 	return $fixmenu;
 }
+
+function sale_percent($sale_price, $regular_price) {
+	$percent = '';
+	if( !empty( $sale_price ) ) { 
+		$percent = ( $regular_price - $sale_price ) / $regular_price * 100;
+		$percent = round( $percent, 2);
+	}
+	return $percent;
+}

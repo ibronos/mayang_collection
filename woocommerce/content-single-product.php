@@ -39,6 +39,7 @@ $soc_med = get_field("social_media", $frontpage_id);
 $wishlist = get_permalink(get_the_ID()).'?add_to_wishlist='.get_the_ID();
 $cart = get_permalink(get_the_ID()).'?add-to-cart='.get_the_ID();
 $perawatan = $data['short_description'];
+$stock_status = $data['stock_status'];
 
 $attr_warna = get_the_terms( get_the_ID() , 'pa_warna' );
 $attr_ukuran =  get_the_terms( get_the_ID() , "pa_ukuran");
@@ -51,9 +52,6 @@ $related_args = array(
     'post__not_in' => array( get_the_ID() )
 );
 $related = wc_get_products( $product_args );
-
-var_dump($attr_warna);
-
 ?>
 
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?> style="margin-top: 8%;">
@@ -116,6 +114,9 @@ var_dump($attr_warna);
 
 							    <h5 class="card-title"><?= $data['name']; ?></h5>
 							    <div class="d-flex justify-content-end">
+			    		    		<?php if( !empty( $data['sale_price'] ) ) { ?>
+						 				<s style=" position:absolute; bottom:90%; font-size: 10px; "> Rp. <?= $data['regular_price'] ; ?> </s>
+									<?php } ?>
 							    	<h5> Rp. <?= $data['price']; ?></h5>
 							    </div>
 
@@ -225,8 +226,11 @@ var_dump($attr_warna);
 							    </div>
 							    	
 							    <div class="d-flex justify-content-center mt-2">
-								    <a href="<?= $cart; ?>" class="btn btn-primary btn-sm btn-block" id="single-product-cart">Beli Sekarang</a>
-
+							    	<?php if( $stock_status == 'outofstock') { ?>
+								    	<button class="btn btn-secondary btn-sm btn-block"> Out of Stock </button>
+									<?php } else { ?>
+										<a href="<?= $cart; ?>" class="btn btn-primary btn-sm btn-block" id="single-product-cart">Beli Sekarang</a>
+									<?php } ?>
 						<!-- 		    <form class="cart w-100" action="<?= get_permalink(get_the_ID()); ?>" method="post" enctype="multipart/form-data">
 										<button type="submit" name="add-to-cart" value="<?= get_the_ID(); ?>" class="btn btn-primary btn-sm btn-block single_add_to_cart_button button alt">
 											Beli Sekarang
@@ -288,8 +292,8 @@ var_dump($attr_warna);
 		</div>
 
 		<!-- related product -->
-		<section id="carousel-katalog">
-			<div class="card mt-5">
+		<div class="card mt-5 border-0">
+			<div id="carousel-katalog">
 				<div class="card-body">
 					<div class="row">
 						<?php foreach($related as $key => $value) { 
@@ -312,8 +316,8 @@ var_dump($attr_warna);
 					</div>
 				</div>
 			</div>
-		</section>
-
+		</div>
+		
 
 		<?php
 		/**
@@ -336,7 +340,7 @@ var_dump($attr_warna);
   
   <div class="container">
 	  <a href="javascript:void(0)" class="closebtn" id="closeNav">&times;</a>
-	  <div class="card mt-4">
+	  <div class="card mt-5">
 	  	<div class="card-header">
 	  		Keranjang Belanja Anda
 	  	</div>

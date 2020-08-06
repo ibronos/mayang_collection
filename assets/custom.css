@@ -107,6 +107,16 @@
   padding-left: 0;
 }
 
+.shop-page .card:hover,
+#carousel-katalog .card:hover
+{
+  box-shadow: 0 0 11px var(--gray-dark); 
+}
+
+.button-shadow {
+  box-shadow: 0 0 11px var(--gray-dark); 
+}
+
 
 
 /*==== side nav ==== */
@@ -134,6 +144,10 @@
 
 .sidenav a:hover {
   color: #f1f1f1;
+}
+
+.sidenav td {
+  font-size: 8px;
 }
 
 .sidenav .closebtn {
