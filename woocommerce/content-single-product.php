@@ -41,6 +41,7 @@ $cart = get_permalink(get_the_ID()).'?add-to-cart='.get_the_ID();
 $perawatan = $data['short_description'];
 $stock_status = $data['stock_status'];
 $current_url = get_permalink(get_the_ID());
+$cart_page = get_permalink( wc_get_page_id( 'cart' ) );
 
 $attr_warna = get_the_terms( get_the_ID() , 'pa_warna' );
 $attr_ukuran =  get_the_terms( get_the_ID() , "pa_ukuran");
@@ -351,7 +352,7 @@ $related = wc_get_products( $product_args );
 	  		<?php wc_get_template( 'checkout/list-barang.php' ); ?>
 	  	</div>
 	  	<div class="card-footer">
-	  		<a href="" class="btn btn-info">Pembayaran</a>
+	  		<a href="<?= $cart_page; ?>" class="btn btn-info btn-sm">Pembayaran</a>
 	  	</div>
 	  </div>
   </div>

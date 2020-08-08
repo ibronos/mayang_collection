@@ -102,8 +102,16 @@ $('.woocommerce-pagination li').addClass('page-item');
 $('.woocommerce-pagination a').addClass('page-link');
 $('.woocommerce-pagination span').addClass('page-link bg-primary text-white');
 
+//woocommerce order detail
+$('.woocommerce-order-details table').addClass('table');
+
 //yith
 $('table.wishlist_table').addClass('table');
+
+//post pagination
+$('.posts-navigation .screen-reader-text').hide();
+$('.posts-navigation').addClass('p-3');
+$('.posts-navigation a').addClass('btn btn-primary btn-lg');
 
 //archive filter
 $("#all").on("click", function(){

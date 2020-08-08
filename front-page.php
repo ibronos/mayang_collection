@@ -42,7 +42,7 @@ $loop = new WP_Query( $args );
 				  <div class="form-row align-items-center">
 				    <div class="col-md-9 my-1">
 				      <label class="sr-only" for="inlineFormInputName">Name</label>
-				      <input type="text" class="form-control" id="subscribe-form" placeholder="Enter Yout Email Address">
+				      <input type="email" class="form-control" id="subscribe-form" placeholder="Enter Your Email Address">
 				    </div>
 				    <div class="col-auto my-1">
 				      <button type="submit" class="btn btn-primary">Subscribe</button>
@@ -53,19 +53,18 @@ $loop = new WP_Query( $args );
 					<p>Get Email from Us and Never Another Exciting Offer</p>
 				</div>
         	</div>
-
         </div>
     </section>
 
     <!-- Katalog Page -->
     <section id="katalog-page">
     	<div class="container">
-    		<div class="row">
+    		<div class="row" style="margin-left: 30px; margin-right: 30px;">
     			<?php foreach ($menu_katalog as $key => $value) { 
     				if( !empty($value['gambar']) ) {
     				// var_dump($value['gambar']);
     			?>
-    			<div class="col-md-6 pb-3">
+    			<div class="col-md-6 pb-4 d-flex justify-content-center">
 				  <div class="card img-fluid" style="width:500px">
 				    <img class="card-img-top" src="<?= $value['gambar']['sizes']['medium_large']; ?>" alt="Card image" style="width:100%">
 				    <div class="card-img-overlay">
@@ -125,7 +124,9 @@ $loop = new WP_Query( $args );
         		$x = 1; 
             	while ( $loop->have_posts() ) {
             		$loop->the_post(); 
-    				$img_url = get_the_post_thumbnail_url( get_the_ID(), '500x375_size' );
+    				$img_url = !empty( get_the_post_thumbnail_url( get_the_ID(), '500x375_size' ) ) ? 
+    				get_the_post_thumbnail_url( get_the_ID(), '500x375_size' ) : 'http://placehold.it/337x225';
+
     				if ($x == 1 || $x == 2) {    				
 			    ?>
 			   		<div class="col-md-6" id="home-post-col">

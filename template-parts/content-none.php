@@ -9,7 +9,7 @@
 
 ?>
 
-<section class="no-results not-found">
+<section class="no-results not-found" style="margin-top: 8%;">
 	<div class="container">
 		<div class="alert alert-danger" role="alert">
 		  <strong>Oh snap!</strong> Change a few things up and try submitting again.

@@ -16,11 +16,9 @@ $video_url = get_field("url_video");
     </div>
 
     <div class="container">
-        <!-- Author -->
         <p class="lead">
-          <a href="#"><?php mc_posted_by(); ?></a>
-          <!-- Date/Time -->
-          <p><?php mc_posted_on(); ?></p>
+          <i class="fa fa-clock-o" aria-hidden="true"> <?php echo get_the_date(); ?> </i> | 
+          <i class="fa fa-user" aria-hidden="true"> <?php echo get_the_author(); ?> </i>
         </p>
 
         <hr>

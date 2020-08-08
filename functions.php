@@ -69,6 +69,7 @@ if ( ! function_exists( 'mc_setup' ) ) :
 			array(
 				'menu-1' => esc_html__( 'Primary', 'mc' ),
 				'woocommerce-menu' => esc_html__( 'Woocommerce Menu', 'mc' ),
+				'footer-menu' => esc_html__( 'Footer Menu', 'mc' ),
 			)
 		);
 

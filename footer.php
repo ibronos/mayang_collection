@@ -13,6 +13,7 @@ $frontpage_id = get_option( 'page_on_front' );
 $info = get_field("info", $frontpage_id);
 $soc_med = get_field("social_media", $frontpage_id);
 $myaccount = get_permalink( wc_get_page_id( 'myaccount' ) );
+$footer_menu = mc_menu('footer-menu');
 
 ?>
 
@@ -53,12 +54,9 @@ $myaccount = get_permalink( wc_get_page_id( 'myaccount' ) );
 			          <div class="col-6 col-md">
 			            <h5>Features</h5>
 			            <ul class="list-unstyled text-small">
-			              <li><a class="text-muted" href="#">Cool stuff</a></li>
-			              <li><a class="text-muted" href="#">Random feature</a></li>
-			              <li><a class="text-muted" href="#">Team feature</a></li>
-			              <li><a class="text-muted" href="#">Stuff for developers</a></li>
-			              <li><a class="text-muted" href="#">Another one</a></li>
-			              <li><a class="text-muted" href="#">Last time</a></li>
+			            	<?php foreach ($footer_menu as $key => $value) { ?>
+				              <li><a class="text-muted" href="<?= $value['url']; ?>"><?= $value['title']; ?></a></li>
+				          <?php } ?>
 			            </ul>
 			          </div>
 			          <div class="col-6 col-md">

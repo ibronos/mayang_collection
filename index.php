@@ -22,33 +22,55 @@ get_header();
 
 			if ( is_home() && ! is_front_page() ) :
 				?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
+				<div class="blog-title" style="margin-top: 8%;">
+					<div class="jumbotron bg-info">
+						<div class="d-flex justify-content-center">
+							<h3 class="text-white"><?php single_post_title(); ?></h3>
+						</div>
+						
+					</div><!-- .entry-header -->
+				</div>
 				<?php
 			endif;
-
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
-
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
-
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
 		?>
+
+		<div class="container">
+			<?php
+				/* Start the Loop */
+				while ( have_posts() ) :
+					the_post();
+
+					/*
+					 * Include the Post-Type-specific template for the content.
+					 * If you want to override this in a child theme, then include a file
+					 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
+					 */
+					// get_template_part( 'template-parts/content', get_post_type() );
+					get_template_part( 'template-parts/content', 'blog' );
+
+				endwhile;
+			?>
+
+			<div class="d-flex justify-content-center">
+			<?php
+				the_posts_navigation(
+				    array(
+				        'prev_text' => __('Older Posts', 'theme_textdomain'),
+				        'next_text' => __('Newer Posts', 'theme_textdomain'),
+				        'screen_reader_text' => __('Nav', 'theme_textdomain')
+				    )
+				);
+			?>
+			</div>
+
+			<?php
+			else :
+
+				get_template_part( 'template-parts/content', 'none' );
+
+			endif;
+		?>
+		</div>
 
 	</main><!-- #main -->
 
