@@ -180,29 +180,8 @@ function mc_scripts() {
 
 	wp_enqueue_script( 'mc-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
-	// wp_enqueue_style( 'mc-style', get_stylesheet_uri() . 'assets/styles.css', array(), true );
-	// wp_enqueue_script( 'all', 'https://use.fontawesome.com/releases/v5.13.0/js/all.js', array(), '3.5.1', true );
-	// wp_enqueue_style( 'magnific-popup-css', 'https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css', array(), true );
-	
-	// // register upgrade jquery version
-	// wp_deregister_script( 'jquery' );
-	// wp_enqueue_script( 'jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js', array('jquery'), '3.5.1', true );
-	// wp_enqueue_script('jquery');
-
-	// wp_enqueue_script( 'bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js',  array('jquery'), '3.5.1', true );
-	// wp_enqueue_script( 'bootstrap', get_template_directory_uri() . 'assets/bootstrap.min.js',  array(), '4.5.0', true );
-
-	// wp_enqueue_script( 'jquery-easing', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js', array(), '3.5.1', true );
-	// wp_enqueue_script( 'magnific-popup', 'https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js', array(), '3.5.1', true );
-	// wp_enqueue_script( 'scripts-2', get_template_directory_uri() . 'assets/scripts.js', array(), '3.5.1', true );
-
-
 	wp_enqueue_style( 'mc-bootstrap-css', get_template_directory_uri() . '/assets/lib/bootstrap/css/bootstrap.min.css' );
 	wp_enqueue_style( 'mc-fontawesome', get_template_directory_uri() . '/assets/lib/font-awesome/css/font-awesome.min.css' );
-	// wp_enqueue_style( 'mc-animate', get_template_directory_uri() . '/assets/lib/animate/animate.min.css' );
-	// wp_enqueue_style( 'mc-ionicons', get_template_directory_uri() . '/assets/lib/ionicons/css/ionicons.min.css' );
-	// wp_enqueue_style( 'mc-owlcarousel', get_template_directory_uri() . '/assets/lib/owlcarousel/assets/owl.carousel.min.css' );
-	// wp_enqueue_style( 'mc-magnific', get_template_directory_uri() . '/assets/lib/magnific-popup/magnific-popup.css' );
 	wp_enqueue_style( 'mc-style2', get_template_directory_uri() . '/assets/styles.css' );
 	wp_enqueue_style( 'mc-custom', get_template_directory_uri() . '/assets/custom.css' );
 

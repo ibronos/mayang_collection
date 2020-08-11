@@ -107,6 +107,7 @@ $('.woocommerce-order-details table').addClass('table');
 
 //yith
 $('table.wishlist_table').addClass('table');
+$('table.wishlist_table img').addClass('img-thumbnail');
 
 //post pagination
 $('.posts-navigation .screen-reader-text').hide();
