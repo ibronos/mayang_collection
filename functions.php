@@ -61,6 +61,7 @@ if ( ! function_exists( 'mc_setup' ) ) :
 		add_image_size( '500x375_size', 500, 375, true );
 		add_image_size( '500x334_size', 500, 334, true );
 		add_image_size( '500x282_size', 500, 282, true );
+		add_image_size( '337x225_size', 337, 225, true );
 		add_image_size( '300x169_size', 300, 169, true );
 		add_image_size( '300x129_size', 300, 129, true );
 

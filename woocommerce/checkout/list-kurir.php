@@ -16,7 +16,7 @@
       </div>
 
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="kurir" id="rcl" value="rcl" checked>
+        <input class="form-check-input" type="radio" name="kurir" id="rcl" value="rcl">
         <label class="form-check-label" for="rcl">
          Red Carpet Logistic
          <img class="img-fluid" width="60px" height="30px" src="<?php echo get_template_directory_uri(); ?>/assets/img/rcl.png">

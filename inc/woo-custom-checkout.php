@@ -1,4 +1,10 @@
 <?php
+
+add_filter( 'woocommerce_order_button_text', 'woo_custom_order_button_text' ); 
+function woo_custom_order_button_text() {
+    return __( 'Pesan', 'woocommerce' ); 
+}
+
 add_filter('woocommerce_checkout_fields', 'custom_override_checkout_fields');
 function custom_override_checkout_fields($fields)
  {

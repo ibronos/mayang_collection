@@ -349,7 +349,7 @@ $related = wc_get_products( $product_args );
 	  		Keranjang Belanja Anda
 	  	</div>
 	  	<div class="card-body">
-	  		<?php wc_get_template( 'checkout/list-barang.php' ); ?>
+	  		<?php wc_get_template( 'single-product/list-cart.php' ); ?>
 	  	</div>
 	  	<div class="card-footer">
 	  		<a href="<?= $cart_page; ?>" class="btn btn-info btn-sm">Pembayaran</a>

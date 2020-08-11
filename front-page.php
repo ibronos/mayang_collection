@@ -49,9 +49,11 @@ $loop = new WP_Query( $args );
 				    </div>
 				  </div>
 				</form>
+				<?php //echo do_shortcode( ' [mc4wp_form id="182"] ' ); ?>
 				<div class="d-flex justify-content-center mt-3">
 					<p>Get Email from Us and Never Another Exciting Offer</p>
 				</div>
+				
         	</div>
         </div>
     </section>
@@ -70,7 +72,7 @@ $loop = new WP_Query( $args );
 				    <div class="card-img-overlay">
 					    <div class="d-flex align-items-start flex-column" style="height: 200px;">
 					    	<?php if($value['link']) { ?>
-							<div class="p-3" style="margin-top: 45%;">
+							<div id="katalog-page-button">
 								<a href="<?= $value['link']; ?>" class="">
 									<span class="card-title"><?= $value['judul_link']; ?></span>
 								</a>
@@ -171,6 +173,34 @@ $loop = new WP_Query( $args );
 	        	?>
             </div>
         </div>
+    </div>
+
+
+    <div id="home-post-mobile">
+    	<div class="container d-flex justify-content-center">
+    		<div class="d-flex align-items-center">
+    			<h3>Blogs</h3>
+    		</div>
+    	</div>
+    	<div class="container-fluid">
+    		<?php 
+            	while ( $loop->have_posts() ) {
+            		$loop->the_post(); 
+    				$img_url = !empty( get_the_post_thumbnail_url( get_the_ID(), '500x375_size' ) ) ? 
+    				get_the_post_thumbnail_url( get_the_ID(), '500x375_size' ) : 'http://placehold.it/337x225';
+    		?>
+    		 <div class="card img-fluid pb-1" style="width:500px">
+				<img class="card-img-top" src="<?=$img_url; ?>" alt="Card image" style="width:100%">
+    			<div class="card-footer text-center bg-info">
+    				<div class="card-title text-white">
+    					<?php the_title(); ?>
+    				</div>
+    			</div>
+    		</div>
+    		<?php 
+    		}
+    		?>
+    	</div>
     </div>
 
 <?php

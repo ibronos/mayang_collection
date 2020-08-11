@@ -3,6 +3,10 @@
 	background-color: white;
 }
 
+#katalog-page-button {
+  margin-top: 50%;
+}
+
 #container-subscribe {
 	width: 75%;
 }
@@ -23,6 +27,10 @@
 
 #home-post-col:hover {
 	opacity: 0.5;
+}
+
+#home-post-mobile {
+  display: none;
 }
 
 #carousel-katalog a,
@@ -83,6 +91,12 @@
   top: 20%;
 }
 
+.navbar-nav .dropdown-item {
+  font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
 @media screen and (max-width: 768px) {
     #mainNav {
     	display: none !important;
@@ -96,6 +110,29 @@
   	 width: 100%;
     }
 
+    #katalog-page-button {
+      margin-top: 45%;
+    }
+
+    #home-post {
+      display: none;  
+    }
+
+    #home-post-mobile {
+      display: block;  
+    }
+
+    footer .row .col-1,
+    footer .row .col-2
+    {
+      padding: 0px;
+      margin-left: 3%;
+    }
+
+    footer .row .text-muted
+    {
+      font-size: 10px;
+    }
 }
 
 .woocommerce-input-wrapper {

@@ -6,7 +6,7 @@ foreach ( WC()->cart->get_cart() as $cart_item ) {
    $quantity = $cart_item['quantity'];
    $price = $cart_item['data']->get_price();
    $image_id = $cart_item['data']->get_image_id();
-   $image_url = wp_get_attachment_url($image_id, 'thumbnail');
+   $image_url = wp_get_attachment_url($image_id, 'small');
 ?>
 
 		  <div class="row">
@@ -36,4 +36,3 @@ foreach ( WC()->cart->get_cart() as $cart_item ) {
 <?php } ?>
 
 <?php endif; ?>
-
